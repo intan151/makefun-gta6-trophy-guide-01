@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Trophy Guide &amp; Tracker — Road to the Platinum</title>
+<meta name="description" content="Offline guide and checklist tracker for all 55 GTA VI PlayStation 5 trophies: roadmap to the platinum, missable flags, cited guides, saved progress.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="title-block">
+    <p class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; OFFLINE GUIDE</p>
+    <h1>Leonida Platinum Guide</h1>
+    <p class="subtitle">Every one of the 55 trophies — official name, description and grade — with a cited guide, a checklist that saves in your browser, a roadmap to the platinum and the missable trophies flagged.</p>
+    <p class="facts"><strong>55 trophies:</strong> 1 platinum &middot; 2 gold &middot; 6 silver &middot; 46 bronze &middot; 28 hidden &middot; <strong>0 online</strong> — all single-player. PowerPyx rates the set 4/10, about 200 hours to the platinum.</p>
+  </div>
+  <div class="progress-card" id="progressCard">
+    <p class="big-number"><span id="earnedCount">0</span><span class="of"> / 55</span></p>
+    <p class="progress-label">trophies earned &middot; <span id="earnedPct">0%</span> to platinum</p>
+    <div class="bar" role="progressbar" aria-label="Progress to platinum"><div class="bar-fill" id="barFill"></div></div>
+    <p class="grade-counts" id="gradeCounts"></p>
+    <p class="type-counts" id="typeCounts"></p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" class="tab active" data-tab="checklist" id="tab-checklist">Checklist</button>
+  <button type="button" class="tab" data-tab="roadmap" id="tab-roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-tab="missables" id="tab-missables">Missables <span class="tab-badge" id="missableCount">1</span></button>
+</nav>
+
+<section id="view-checklist" class="view">
+  <div class="controls">
+    <label class="search-label">Search <input id="search" type="search" placeholder="Trophy, mission or keyword…" autocomplete="off"></label>
+    <label>Grade
+      <select id="gradeFilter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Type
+      <select id="typeFilter">
+        <option value="all">All types</option>
+        <option value="story">Story</option>
+        <option value="missable">Missable</option>
+        <option value="collectibles">Collectibles</option>
+        <option value="activities">Activities</option>
+        <option value="online">Online</option>
+        <option value="platinum">Platinum</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="statusFilter">
+        <option value="all">Earned &amp; unearned</option>
+        <option value="earned">Earned only</option>
+        <option value="unearned">Not earned yet</option>
+      </select>
+    </label>
+    <label class="spoiler-toggle"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+    <button id="exportBtn" type="button">Export progress</button>
+    <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  </div>
+  <p class="hint" id="spoilerHint">Spoilers on: story trophies you have not earned show as “Hidden story trophy” until you tick them or switch spoilers off. The platinum, gold and silver counts above still count them.</p>
+  <p class="hint" id="onlineNote">Online: this list has no online trophies — all 55 are single-player and offline, so the platinum needs no multiplayer.</p>
+  <p class="result-line" id="resultLine"></p>
+  <ul class="trophy-list" id="trophyList"></ul>
+  <p class="empty" id="emptyState" hidden>No trophies match these filters. Clear the search or widen the grade, type or status filter.</p>
+</section>
+
+<section id="view-roadmap" class="view" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="roadmap-intro">One playthrough is enough — there is no mission replay, but free-roam continues after the story and everything needed for 100% stays reachable. PowerPyx puts the whole run at about 200 hours, difficulty 4/10, with <strong>A Long Road</strong> (100% completion) the longest grind. Work the phases in order; the platinum pops with the last trophy you earn.</p>
+  <div class="roadmap-warnings">
+    <p><strong>Do first, in Chapter 1:</strong> meditate at Jason&rsquo;s house — the one meditation spot PowerPyx flags as possibly missable. See <a href="#view-missables" id="missableLink">Missables</a>.</p>
+    <p><strong>Cheats off:</strong> using cheats disables trophies and saving, so keep them off for the whole run (GTABase / TechWiser, via EGamers).</p>
+    <p><strong>100% is lenient:</strong> the checklist (Progress &gt; Stats &gt; 100% Completion, visible after the story) needs only 70 of 80 challenges — roughly 60% of true completion, per PowerPyx.</p>
+  </div>
+  <ol class="phases" id="phaseList"></ol>
+</section>
+
+<section id="view-missables" class="view" hidden>
+  <h2>Missable trophies</h2>
+  <p class="missable-intro">Built from the official descriptions and checked against PowerPyx&rsquo;s launch guide: only <strong>one</strong> trophy is flagged as potentially missable. The story trophies below it are <em>not</em> missable — each pops automatically when its mission or chapter ends, and free-roam after the story keeps everything else reachable.</p>
+  <div id="missableList"></div>
+  <h3>Story trophies — not missable</h3>
+  <p class="story-note">These 17 unlock by playing the story: chapter completions, named missions and character finales. There is no mission replay, but none of them can be failed permanently — finish the mission and the trophy pops.</p>
+  <ul class="trophy-list compact" id="storyList"></ul>
+</section>
+
+<footer>
+  <p><strong>Sources.</strong> Trophy names, descriptions and grades: the official PS5 list as published on <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase</a> and <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles</a> (the two agree on every name, description and grade). Guidance and counts: <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx — GTA 6 Trophy Guide &amp; Roadmap</a>. Every guide on this page is written in our own words for this guide; sources are cited beside each trophy, never copied. Where a launch guide had not yet pinned down an exact trigger, the guide says so instead of guessing.</p>
+  <p>Works fully offline: no network requests, progress saved in this browser (localStorage). No Rockstar Games logo, artwork or game screenshots are used — the look is our own.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
